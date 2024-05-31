@@ -17,10 +17,10 @@ jobs:
     - uses: actions/checkout@v3
     - name: Set up JDK 11
     - uses: actions/setup-java@v2
-       with:
+      with:
          distribution: 'adopt'
          java-version: '11'
-     - name: Build with Maven
+    -  name: Build with Maven
        run: mvn install -f MyWebApp/pom.xml
     - uses: act10ns/slack@v2
       with:
