@@ -12,6 +12,6 @@ jobs:
       with:
         status: starting
         channel: '#notificaciones'
-        message: Starting Docker Build image...
+        message: Alerta, Se ha realizado cambios en el reposiorio Admin/CI...
       if: always()
 
