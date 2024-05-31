@@ -22,8 +22,8 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build . -t cloudquickstartregistry.azurecr.io/myapp:${{ github.sha }}
-        docker push cloudquickstartregistry.azurecr.io/myapp:${{ github.sha }}
+        docker build . -t cloudquickstartregistry.azurecr.io/e-admin:${{ github.sha }}
+        docker push cloudquickstartregistry.azurecr.io/e-admin:${{ github.sha }}
 
     - name: Logout from Azure Container Registry
       run: docker logout cloudquickstartregistry.azurecr.io
