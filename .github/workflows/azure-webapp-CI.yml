@@ -1,4 +1,4 @@
-name: Build and Deploy Container App with Slack Integration
+name: Build and Deploy Container App
 
 on:
   workflow_dispatch:
@@ -6,20 +6,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     defaults:
       run:
         shell: bash
     steps:
-    - name: Send Slack notification (Starting)
-      uses: act10ns/slack@v2
-      with:
-        status: starting
-        channel: '#mar-2024-weekend-batch'
-        message: 'Starting build and deploy process...'
-      if: always()
-
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -37,11 +27,3 @@ jobs:
 
     - name: Logout from Azure Container Registry
       run: docker logout cloudquickstartregistry.azurecr.io
-
-    - name: Send Slack notification (Completed)
-      uses: act10ns/slack@v2
-      with:
-        channel: '#mar-2024-weekend-batch'
-        status: ${{ job.status }}
-        message: 'Build and deploy process has finished with status: ${{ job.status }}'
-      if: always()
